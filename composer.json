@@ -1,0 +1,48 @@
+{
+  "name": "xes/logtrace-laravel",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ChangLong.Xu",
+      "email": "xuchanglong@100tal.com"
+    }
+  ],
+  "keywords": [
+    "php",
+    "laravel"
+  ],
+  "description": "Laravel trace sdk",
+  "autoload": {
+    "psr-4": {
+      "Xes\\Logtrace\\": "./src"
+    }
+  },
+  "require": {
+    "php": ">=7.2",
+    "goaop/framework": "~2.3.5",
+    "illuminate/support": "^5.0|^6.0|^7.0|^8.0",
+    "nikic/php-parser": "^4.2|^4.5|^4.6",
+    "ext-json": "*",
+    "ext-curl": "*"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.14",
+    "swoole/ide-helper": "dev-master"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "test": "phpunit -c phpunit.xml --colors=always",
+    "analyse": "phpstan analyse --memory-limit 1024M -l 0 ./src",
+    "cs-fix": "php-cs-fixer fix $1"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Xes\\Logtrace\\Provider\\AopServiceProvider",
+        "Xes\\Logtrace\\Provider\\GoAopServiceProvider"
+      ]
+    }
+  }
+}
